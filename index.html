@@ -253,6 +253,17 @@
 
         <div class="usc">
             <div class="usc-info">
+                <h3>Mount + AutoWalk</h3>
+                <p>Script khusus untuk fitur mount dan Auto walk</p>
+            </div>
+            <button class="btn-copy" onclick="copyMountScript(this)">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                Copy Script
+            </button>
+        </div>
+
+        <div class="usc">
+            <div class="usc-info">
                 <h3>Freecam & copy avatar</h3>
                 <p>Script khusus untuk fitur freecam dan ganti avatar</p>
             </div>
@@ -396,6 +407,21 @@ const SCRIPTS = [
             <div class="feat-group"><div class="feat-cat">Player Mod</div><ul class="feat-list"><li>Unstuck</li><li>Noclip</li><li>Adjustable WalkSpeed</li></ul></div>
         `
     },
+    { 
+        name: "All Mount", 
+        placeId: "mountID", 
+        img: "https://i.ibb.co.com/7JYBwVNx/file-00000000c9e472069c3836c34d508189.png", 
+        status: "working",
+        features: `
+            <div class="feat-group"><div class="feat-cat">Auto Walk (Advanced Macro)</div><ul class="feat-list"><li>Advanced Macro Recorder (Record, Play, Stop)</li><li>Floating Menu Editor & Playback</li><li>Save, Load, & Delete Config Auto Walk</li><li>Adjustable Playback Speed & Scrub Slider</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Mt. Dranix</div><ul class="feat-list"><li>Teleport Mode (Instant Bypass / Smooth)</li><li>Auto Teleport Next Checkpoint (Loop sampai Puncak)</li><li>Auto Return to Basecamp</li><li>Manual Teleport Checkpoint 1-25 & Summit</li><li>Adjustable Teleport Speed & Delay</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Mt. Skytopia</div><ul class="feat-list"><li>Teleport Mode (Instant Bypass / Smooth)</li><li>Auto Teleport Next Checkpoint (Loop sampai Puncak)</li><li>Auto Return to Basecamp</li><li>Manual Teleport Checkpoint 1-30 & Summit</li><li>Adjustable Teleport Speed & Delay</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Player Mods</div><ul class="feat-list"><li>Adjustable WalkSpeed</li><li>Infinite Jump</li><li>Fly Mode (IY Style) dengan Adjustable Speed</li><li>Noclip (Tembus Benda)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Config & Waypoint</div><ul class="feat-list"><li>Custom Waypoint Manager (Simpan & Teleport Lokasi Sendiri)</li><li>System Bypass (Anti Gameplay Paused & Anti Blur)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Teleport & Spectate</div><ul class="feat-list"><li>Teleport ke Player Lain</li><li>Spectate View Player Lain</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Hide & Visuals</div><ul class="feat-list"><li>Streamer Mode (Fake Nickname)</li><li>Custom RGB Title Bar</li></ul></div>
+        `
+    }
 ];
 
 // ==========================================
@@ -465,6 +491,21 @@ function switchTab(targetId) {
 // COPY UNIVERSAL SCRIPT
 function copyUniversalScript(btn) {
     const scriptCode = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/migii02/MigiiHUB/refs/heads/main/Main.lua"))()';
+    navigator.clipboard.writeText(scriptCode).then(() => {
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Tersalin!';
+        btn.style.background = 'var(--green)';
+        
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '';
+        }, 2000);
+    });
+}
+
+// COPY MOUNT SCRIPT
+function copyMountScript(btn) {
+    const scriptCode = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/migii02/MigiiHUB/refs/heads/main/etc/Mount.lua"))()';
     navigator.clipboard.writeText(scriptCode).then(() => {
         const originalHTML = btn.innerHTML;
         btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Tersalin!';
