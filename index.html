@@ -67,7 +67,7 @@
         .dot-g{background:var(--green);box-shadow:0 0 8px rgba(16, 185, 129, 0.5);}
 
         /* Modern Buttons */
-        .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:14px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s ease;}
+        .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:14px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s ease; cursor:pointer; border:none; font-family:inherit;}
         .btn:active{transform:scale(.97)}
         .btn-dc{background: var(--discord); color: #fff;}
         .btn-dc:hover{background: #4752C4;}
@@ -89,7 +89,7 @@
         .usc { background: var(--card); border: 1px solid var(--primary); border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1); }
         .usc-info h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
         .usc-info p { font-size: 12px; color: var(--dim); }
-        .btn-copy { background: var(--primary); color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer; border: none; display: flex; align-items: center; gap: 8px; transition: all .2s ease; white-space: nowrap; }
+        .btn-copy { background: var(--primary); color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer; border: none; display: flex; align-items: center; gap: 8px; transition: all .2s ease; white-space: nowrap; font-family: inherit;}
         .btn-copy:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
         .btn-copy:active { transform: scale(0.96); }
 
@@ -105,15 +105,21 @@
         .sec-t{font-size:14px;font-weight:700;}
         .sec-c{font-size:12px;color:var(--dim); font-weight: 500;}
 
-        /* Modern List Items (Bisa diklik) */
+        /* Modern List Items */
         .list{display:flex;flex-direction:column;gap:10px}
         .item{display:flex;align-items:center;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:16px;gap:16px;transition:all .2s ease; cursor: pointer; position: relative;}
         .item:hover{background: var(--card-hover); border-color: #3f3f46; transform: translateY(-2px);}
+        
         .item-img{
-            width:52px;height:52px;border-radius:12px;
-            object-fit:cover;background:var(--bg);
-            flex-shrink:0;border:1px solid var(--border);
+            width: 90px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover; 
+            background: var(--bg);
+            flex-shrink: 0;
+            border: 1px solid var(--border);
         }
+        
         .item-info{flex:1;min-width:0}
         .item-name{font-size:14px;font-weight:600;color:var(--text); margin-bottom: 4px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
         .item-click-hint {position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0; transition: opacity .2s; font-size: 12px; font-weight: 600; background: rgba(99, 102, 241, 0.1); padding: 4px 10px; border-radius: 8px;}
@@ -125,7 +131,7 @@
         .st-p{background: rgba(239, 68, 68, 0.1); color: var(--red);}
         .st-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor;}
 
-        /* MODAL POPUP CHANGELOG */
+        /* MODAL POPUP */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.6);
@@ -155,8 +161,9 @@
         .modal-close { background: var(--bg); border: 1px solid var(--border); width: 32px; height: 32px; border-radius: 50%; color: var(--dim); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; }
         .modal-close:hover { background: var(--border); color: var(--text); }
         
-        /* Modal Body & Feature Formatting */
         .modal-body { padding: 24px; overflow-y: auto; }
+        
+        /* Feature Formatting */
         .feat-group { margin-bottom: 20px; }
         .feat-group:last-child { margin-bottom: 0; }
         .feat-cat { font-size: 12px; font-weight: 700; color: var(--primary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
@@ -171,25 +178,17 @@
         .faq-q svg{width:16px;height:16px;fill:var(--dim);transition:transform .3s}
         .faq.open .faq-q svg{transform:rotate(180deg); fill: var(--text);}
         .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
-        
-        /* WARNA TEKS JAWABAN FAQ DIPERTERANG */
         .faq-a-in{padding:0 18px 18px;font-size:13px;color:#d4d4d8;line-height:1.6} 
-        .faq.open .faq-a{max-height:800px} /* Height dibesarkan agar tidak kepotong */
+        .faq.open .faq-a{max-height:800px} 
 
         /* Footer */
         .ft{text-align:center;padding:32px 0;margin-top:20px;}
         .ft p{font-size:12px;color:var(--dim); font-weight: 500;}
 
-        /* ========================================= */
-        /* PC / DESKTOP MODE RESPONSIVE (GRID 2 KOLOM) */
-        /* ========================================= */
+        /* PC / DESKTOP MODE RESPONSIVE */
         @media(min-width: 768px) {
-            :root { --max-w: 800px; } /* Lebar maksimal di PC ditingkatkan */
-            .list { 
-                display: grid; 
-                grid-template-columns: repeat(2, 1fr); /* Membagi daftar jadi 2 kolom menyamping */
-                gap: 16px; 
-            }
+            :root { --max-w: 800px; } 
+            .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .hdr h1 { font-size: 32px; }
             .dc { padding: 32px; }
             .tabs { padding: 8px; margin: 32px 0 24px; }
@@ -224,7 +223,17 @@
         </div>
         
         <a href="#" class="btn btn-dc" id="dcL" target="_blank">Join Discord Server</a>
-        <a href="#" class="btn btn-don" id="donL" target="_blank">Support Us</a>
+        
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button class="btn btn-don" style="margin-top: 0; flex: 1;" onclick="openQrisModal()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 3h6v6H3V3zm2 2v2h2V5H5zm8-2h6v6h-6V3zm2 2v2h2V5h-2zM3 13h6v6H3v-6zm2 2v2h2v-2H5zm13-2h-3v2h3v-2zm-3 4h3v2h-3v-2zM13 3h2v2h-2V3zm0 4h2v2h-2V7zm0 6h2v2h-2v-2zm0 4h2v2h-2v-2z"/></svg>
+                Support Me
+            </button>
+            <a href="#" class="btn btn-don" style="margin-top: 0; flex: 1;" id="donL" target="_blank">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                Donate Me
+            </a>
+        </div>
     </div>
 
     <div class="tabs">
@@ -305,7 +314,24 @@
             </button>
         </div>
         <div class="modal-body" id="modalBody">
-            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="qrisModal" onclick="closeQrisModal(event)">
+    <div class="modal-box" style="align-items: center; padding: 10px;">
+        <div class="modal-hdr" style="width: 100%; border-bottom: none; padding: 16px;">
+            <h3>Support Developer</h3>
+            <button class="modal-close" onclick="closeQrisModal(event, true)">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+        <div class="modal-body" style="text-align: center; padding-top: 0;">
+            <a href="https://i.ibb.co.com/Vc7HccZD/20251102-134425.jpg" target="_blank" style="display: block; cursor: pointer;">
+                <img src="https://i.ibb.co.com/Vc7HccZD/20251102-134425.jpg" alt="QRIS MIGII HUB" style="width: 100%; max-width: 280px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.5); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            </a>
+            <p style="color: var(--dim); font-size: 13px; margin-top: 16px; font-weight: 500; line-height: 1.6;">Scan QRIS di atas menggunakan M-Banking atau e-Wallet kesayanganmu.<br><span style="color: var(--primary);">Klik gambar untuk memperbesar.</span> Terima kasih!</p>
+        </div>
     </div>
 </div>
 
@@ -316,15 +342,30 @@
 const CONFIG = {
     NAME: "MIGII HUB",
     DESC: "Premium Script Provider",
-    LOGO: "https://cdn.discordapp.com/attachments/1412787806262136957/1495318722544537760/file_00000000388c71fab67ac2c36cf64681.png?ex=69e5cf95&is=69e47e15&hm=98a4acb4cbad23ac6d641f4f3f7e75e89fdf97be188514752cc6ffd5d9d3ce98&",
+    LOGO: "https://i.ibb.co.com/PsgSzv2w/file-00000000388c71fab67ac2c36cf64681.png",
     DISCORD: "https://discord.gg/Ev5YUVmQqh",
     DONATE: "https://saweria.co/migii"
 };
 
 // ==========================================
-// SCRIPT LIST & FEATURES DATA (URUTAN ABSOLUT)
+// SCRIPT LIST & FEATURES DATA (DIURUTKAN A-Z)
 // ==========================================
 const SCRIPTS = [
+    { 
+        name: "All Mount", 
+        placeId: "mountID", 
+        img: "https://i.ibb.co.com/7JYBwVNx/file-00000000c9e472069c3836c34d508189.png", 
+        status: "working",
+        features: `
+            <div class="feat-group"><div class="feat-cat">Auto Walk (Advanced Macro)</div><ul class="feat-list"><li>Advanced Macro Recorder (Record, Play, Stop)</li><li>Floating Menu Editor & Playback</li><li>Save, Load, & Delete Config Auto Walk</li><li>Adjustable Playback Speed & Scrub Slider</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Mt. Dranix</div><ul class="feat-list"><li>Teleport Mode (Instant Bypass / Smooth)</li><li>Auto Teleport Next Checkpoint (Loop sampai Puncak)</li><li>Auto Return to Basecamp</li><li>Manual Teleport Checkpoint 1-25 & Summit</li><li>Adjustable Teleport Speed & Delay</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Mt. Skytopia</div><ul class="feat-list"><li>Teleport Mode (Instant Bypass / Smooth)</li><li>Auto Teleport Next Checkpoint (Loop sampai Puncak)</li><li>Auto Return to Basecamp</li><li>Manual Teleport Checkpoint 1-30 & Summit</li><li>Adjustable Teleport Speed & Delay</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Player Mods</div><ul class="feat-list"><li>Adjustable WalkSpeed</li><li>Infinite Jump</li><li>Fly Mode (IY Style) dengan Adjustable Speed</li><li>Noclip (Tembus Benda)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Config & Waypoint</div><ul class="feat-list"><li>Custom Waypoint Manager (Simpan & Teleport Lokasi Sendiri)</li><li>System Bypass (Anti Gameplay Paused & Anti Blur)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Teleport & Spectate</div><ul class="feat-list"><li>Teleport ke Player Lain</li><li>Spectate View Player Lain</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Hide & Visuals</div><ul class="feat-list"><li>Streamer Mode (Fake Nickname)</li><li>Custom RGB Title Bar</li></ul></div>
+        `
+    },
     { 
         name: "Dance Now", 
         placeId: "danceNowID", 
@@ -355,6 +396,18 @@ const SCRIPTS = [
         `
     },
     { 
+        name: "Huruf Terakhir [Sambung Kata]", 
+        placeId: "hurufTerakhirID", 
+        img: "https://tr.rbxcdn.com/180DAY-790a94a01c892bf4fec953fe280f793c/768/432/Image/Webp/noFilter", 
+        status: "working",
+        features: `
+            <div class="feat-group"><div class="feat-cat">Mode Sambung Kata (Universal)</div><ul class="feat-list"><li>AutoPlay Mode (Otomatis menjawab giliran)</li><li>Instant Mode (Bypass ngetik / menjawab secara instan lewat server)</li><li>Manual Assist Mode (Panel sugesti kata Millionaire)</li><li>Hard Mode (Prioritas kata dengan akhiran sulit: x, q, z, v, dll)</li><li>Kill Mode (Algoritma prediksi untuk mematikan langkah lawan)</li><li>Reset Word Memory (Manual & Auto-reset setiap match baru)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Sistem Sugesti & Informasi</div><ul class="feat-list"><li>Live Match Indicator Panel</li><li>Word Suggestion UI (4 Pilihan kata per giliran)</li><li>Auto-Delete Wrong Words (Otomatis menghapus jika kata salah)</li><li>Passive Match Scanner (Mendeteksi kata yang digunakan pemain lain)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Pengaturan Kecepatan</div><ul class="feat-list"><li>Adjustable Typing Speed (Detik per huruf)</li><li>Adjustable Start Delay (Jeda sebelum mulai menjawab)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Sistem & Engine</div><ul class="feat-list"><li>Multi-Source Dictionary Engine (Fetch data dari 3 sumber GitHub berbeda)</li><li>Universal Turn Detection (Support 6 game sambung kata berbeda)</li><li>Humanized Keyboard Simulation</li><li>Full Kill Switch & UI Wiper</li></ul></div>
+        `
+    },
+    { 
         name: "Indo Hangout", 
         placeId: "indohangoutID", 
         img: "https://tr.rbxcdn.com/180DAY-cc31f16f6f46608c665b6bedd690858f/768/432/Image/Webp/noFilter", 
@@ -368,9 +421,35 @@ const SCRIPTS = [
         `
     },
     { 
+        name: "Pantai Voice Chat", 
+        placeId: "pantaiVoiceChatID", 
+        img: "https://tr.rbxcdn.com/180DAY-6261b4248549b5f75a23101abe5bc3c9/768/432/Image/Webp/noFilter", 
+        status: "working",
+        features: `
+            <div class="feat-group"><div class="feat-cat">Auto Fishing</div><ul class="feat-list"><li>Legit Mode (Auto Align & Cast)</li><li>Blatant Mode (Instant)</li><li>Smartlock Anti-Crash System</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Auto Sell</div><ul class="feat-list"><li>Auto Sell Fish</li><li>Custom Sell Category (All, Under 50Kg-600Kg)</li><li>Adjustable Sell Interval</li><li>Manual Sell Button</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Teleportation</div><ul class="feat-list"><li>Teleport to Rod Shop</li><li>Teleport to Fish Seller</li><li>Teleport to Custom Fishing Spots (Spot 1-6)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Shop & Items</div><ul class="feat-list"><li>Dynamic Shop Scanner (Auto Read Item & Price)</li><li>Remote Buy Item (Auto Teleport & Buy)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Player Options</div><ul class="feat-list"><li>Scan & Refresh Player List</li><li>Teleport to Player</li><li>Spectate Player Camera</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">System & Misc</div><ul class="feat-list"><li>Anti AFK</li></ul></div>
+        `
+    },
+    { 
+        name: "Sambung Kata", 
+        placeId: "sambungKataID", 
+        img: "https://tr.rbxcdn.com/180DAY-153fbf607a2fe806ae19354cc00c6318/768/432/Image/Webp/noFilter", 
+        status: "working",
+        features: `
+            <div class="feat-group"><div class="feat-cat">Mode Sambung Kata</div><ul class="feat-list"><li>AutoPlay Mode</li><li>Manual Assist Mode (Panel Sugesti)</li><li>Hard Mode (Prioritas akhiran kata susah)</li><li>Reset Word Memory (Manual)</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Pengaturan Kecepatan</div><ul class="feat-list"><li>Adjustable Typing Speed</li><li>Adjustable Start Delay</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Informasi & Visual</div><ul class="feat-list"><li>Live Match Indicator Panel</li><li>Word Suggestion Panel (4 Pilihan Kata)</li><li>Auto-Delete Wrong Words</li></ul></div>
+            <div class="feat-group"><div class="feat-cat">Sistem & Engine</div><ul class="feat-list"><li>Multi-Source Dictionary Loader (Anti-Lag)</li><li>Keyboard Simulation Engine</li><li>Full Kill Switch & UI Wiper</li></ul></div>
+        `
+    },
+    { 
         name: "Sawah Indo", 
         placeId: "sawahIndoID", 
-        img: "https://tr.rbxcdn.com/180DAY-b0a374c27019af96688221fd295bc3f8/256/256/Image/Webp/noFilter", 
+        img: "https://tr.rbxcdn.com/180DAY-13a55962ab823d1bcd5a2dd3bc16ffa0/768/432/Image/Webp/noFilter", 
         status: "working",
         features: `
             <div class="feat-group"><div class="feat-cat">Sistem UI & Dashboard</div><ul class="feat-list"><li>MigiiHUB Library V2 (Support UI Themes)</li><li>Floating Monitor Panel (Global, Tanaman, Hewan, Inventory)</li><li>Show/Hide Custom Logo Button</li><li>Auto Confirm UI (Static GUI Bypass)</li></ul></div>
@@ -383,21 +462,9 @@ const SCRIPTS = [
         `
     },
     { 
-        name: "Sambung Kata", 
-        placeId: "sambungKataID", 
-        img: "https://tr.rbxcdn.com/180DAY-153fbf607a2fe806ae19354cc00c6318/256/256/Image/Webp/noFilter", 
-        status: "working",
-        features: `
-            <div class="feat-group"><div class="feat-cat">Mode Sambung Kata</div><ul class="feat-list"><li>AutoPlay Mode</li><li>Manual Assist Mode (Panel Sugesti)</li><li>Hard Mode (Prioritas akhiran kata susah)</li><li>Reset Word Memory (Manual)</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Pengaturan Kecepatan</div><ul class="feat-list"><li>Adjustable Typing Speed</li><li>Adjustable Start Delay</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Informasi & Visual</div><ul class="feat-list"><li>Live Match Indicator Panel</li><li>Word Suggestion Panel (4 Pilihan Kata)</li><li>Auto-Delete Wrong Words</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Sistem & Engine</div><ul class="feat-list"><li>Multi-Source Dictionary Loader (Anti-Lag)</li><li>Keyboard Simulation Engine</li><li>Full Kill Switch & UI Wiper</li></ul></div>
-        `
-    },
-    { 
         name: "Violent District", 
         placeId: "violentDistrictID", 
-        img: "https://tr.rbxcdn.com/180DAY-ebde23d7fd4a7b83ba3bf6a3df91d131/256/256/Image/Webp/noFilter", 
+        img: "https://tr.rbxcdn.com/180DAY-2864a58c935a65e12f5c662fa877c21a/768/432/Image/Webp/noFilter", 
         status: "working",
         features: `
             <div class="feat-group"><div class="feat-cat">ESP & Visuals</div><ul class="feat-list"><li>Survivors ESP</li><li>Killers ESP</li><li>Generators ESP</li><li>Hooks ESP</li><li>Gates ESP</li><li>3D Wallhack (Fill)</li><li>Tracers (Line)</li><li>Show Names</li><li>Show HP</li><li>Show Distance</li><li>Fullbright</li></ul></div>
@@ -406,26 +473,11 @@ const SCRIPTS = [
             <div class="feat-group"><div class="feat-cat">Teleport</div><ul class="feat-list"><li>Teleport to Generators</li><li>Teleport to Exit Gates (1 & 2)</li></ul></div>
             <div class="feat-group"><div class="feat-cat">Player Mod</div><ul class="feat-list"><li>Unstuck</li><li>Noclip</li><li>Adjustable WalkSpeed</li></ul></div>
         `
-    },
-    { 
-        name: "All Mount", 
-        placeId: "mountID", 
-        img: "https://i.ibb.co.com/7JYBwVNx/file-00000000c9e472069c3836c34d508189.png", 
-        status: "working",
-        features: `
-            <div class="feat-group"><div class="feat-cat">Auto Walk (Advanced Macro)</div><ul class="feat-list"><li>Advanced Macro Recorder (Record, Play, Stop)</li><li>Floating Menu Editor & Playback</li><li>Save, Load, & Delete Config Auto Walk</li><li>Adjustable Playback Speed & Scrub Slider</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Mt. Dranix</div><ul class="feat-list"><li>Teleport Mode (Instant Bypass / Smooth)</li><li>Auto Teleport Next Checkpoint (Loop sampai Puncak)</li><li>Auto Return to Basecamp</li><li>Manual Teleport Checkpoint 1-25 & Summit</li><li>Adjustable Teleport Speed & Delay</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Mt. Skytopia</div><ul class="feat-list"><li>Teleport Mode (Instant Bypass / Smooth)</li><li>Auto Teleport Next Checkpoint (Loop sampai Puncak)</li><li>Auto Return to Basecamp</li><li>Manual Teleport Checkpoint 1-30 & Summit</li><li>Adjustable Teleport Speed & Delay</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Player Mods</div><ul class="feat-list"><li>Adjustable WalkSpeed</li><li>Infinite Jump</li><li>Fly Mode (IY Style) dengan Adjustable Speed</li><li>Noclip (Tembus Benda)</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Config & Waypoint</div><ul class="feat-list"><li>Custom Waypoint Manager (Simpan & Teleport Lokasi Sendiri)</li><li>System Bypass (Anti Gameplay Paused & Anti Blur)</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Teleport & Spectate</div><ul class="feat-list"><li>Teleport ke Player Lain</li><li>Spectate View Player Lain</li></ul></div>
-            <div class="feat-group"><div class="feat-cat">Hide & Visuals</div><ul class="feat-list"><li>Streamer Mode (Fake Nickname)</li><li>Custom RGB Title Bar</li></ul></div>
-        `
     }
 ];
 
 // ==========================================
-// FAQ DATA (Bisa diklik & terbuka ke bawah)
+// FAQ DATA
 // ==========================================
 const FAQ = [
     { q: "Apa itu Script Roblox?", a: "Script adalah kode tambahan yang dijalankan di game Roblox untuk memberikan fitur ekstra." },
@@ -488,48 +540,34 @@ function switchTab(targetId) {
     localStorage.setItem('activeHubTab', targetId);
 }
 
-// COPY UNIVERSAL SCRIPT
+// COPY SCRIPTS
 function copyUniversalScript(btn) {
     const scriptCode = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/migii02/MigiiHUB/refs/heads/main/Main.lua"))()';
     navigator.clipboard.writeText(scriptCode).then(() => {
         const originalHTML = btn.innerHTML;
         btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Tersalin!';
         btn.style.background = 'var(--green)';
-        
-        setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.style.background = '';
-        }, 2000);
+        setTimeout(() => { btn.innerHTML = originalHTML; btn.style.background = ''; }, 2000);
     });
 }
 
-// COPY MOUNT SCRIPT
 function copyMountScript(btn) {
     const scriptCode = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/migii02/MigiiHUB/refs/heads/main/etc/Mount.lua"))()';
     navigator.clipboard.writeText(scriptCode).then(() => {
         const originalHTML = btn.innerHTML;
         btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Tersalin!';
         btn.style.background = 'var(--green)';
-        
-        setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.style.background = '';
-        }, 2000);
+        setTimeout(() => { btn.innerHTML = originalHTML; btn.style.background = ''; }, 2000);
     });
 }
 
-// COPY FREECAM SCRIPT
 function copyFreecamScript(btn) {
     const scriptCode = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/migii02/MigiiHUB/refs/heads/main/etc/Freecam%20%2B%20changeava.lua"))()';
     navigator.clipboard.writeText(scriptCode).then(() => {
         const originalHTML = btn.innerHTML;
         btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Tersalin!';
         btn.style.background = 'var(--green)';
-        
-        setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.style.background = '';
-        }, 2000);
+        setTimeout(() => { btn.innerHTML = originalHTML; btn.style.background = ''; }, 2000);
     });
 }
 
@@ -558,16 +596,14 @@ function filterScripts() {
 }
 
 // ==========================================
-// MODAL LOGIC (Menampilkan Fitur)
+// MODAL LOGIC (FITUR SCRIPT)
 // ==========================================
-
 function openModal(gameName) {
     const overlay = document.getElementById('modalOverlay');
     const body = document.getElementById('modalBody');
     const title = document.getElementById('modalTitle');
 
     const gameData = SCRIPTS.find(s => s.name === gameName);
-
     title.textContent = `Fitur: ${gameName}`;
     
     if (gameData && gameData.features) {
@@ -575,13 +611,25 @@ function openModal(gameName) {
     } else {
         body.innerHTML = '<div style="color: var(--dim); text-align: center;">Tidak ada data fitur untuk game ini.</div>';
     }
-    
     overlay.classList.add('act');
 }
 
 function closeModal(event, forceClose = false) {
     if (forceClose || event.target.id === 'modalOverlay') {
         document.getElementById('modalOverlay').classList.remove('act');
+    }
+}
+
+// ==========================================
+// MODAL LOGIC (QRIS SUPPORT)
+// ==========================================
+function openQrisModal() {
+    document.getElementById('qrisModal').classList.add('act');
+}
+
+function closeQrisModal(event, forceClose = false) {
+    if (forceClose || event.target.id === 'qrisModal') {
+        document.getElementById('qrisModal').classList.remove('act');
     }
 }
 
